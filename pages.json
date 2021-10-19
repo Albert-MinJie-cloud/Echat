@@ -4,8 +4,32 @@
 			"path": "pages/index/index",
 			"style": {
 				//"navigationBarTitleText": "uni-app",
-				"navigationStyle":"custom"
+				"navigationStyle": "custom"
 			}
+		}, {
+			"path": "pages/signin/signin",
+			"style": {
+				// "navigationBarTitleText": "",
+				// "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/register/register",
+			"style": {
+				// "navigationBarTitleText": "",
+				// "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
 		}
 	],
 	"globalStyle": {
