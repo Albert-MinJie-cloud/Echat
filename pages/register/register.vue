@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="top_bar">
 
-			<view class="top_bar_left" @tap="toSignIn">
+			<view class="top_bar_left" @tap="backOne">
 				<image class="back-img" src="../../static/images/register/arrow-left-bold.png"></image>
 			</view>
 
@@ -118,7 +118,7 @@
 			},
 
 			/* 返回登录页 */
-			toSignIn: function() {
+			backOne: function() {
 				uni.navigateBack({
 					delta: 1
 				})

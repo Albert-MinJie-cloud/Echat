@@ -1,6 +1,6 @@
 // 	公用头部高度
 .content {
-		padding-top: var(--status-bar-height);
+	padding-top: var(--status-bar-height);
 }
 
 // 头部公用样式
@@ -12,23 +12,28 @@
 	width: 100%;
 	height: 88rpx;
 	padding-top: var(--status-bar-height);
-	background: rgba(255,255,255,0.95);
 
 	.top_bar_left {
 		float: left;
 
 		image {
-			margin-left: $uni-spacing-col-base;
-			margin-top: 10rpx;
-			width: 68rpx;
-			height: 68rpx;
+			margin-top: 18rpx;
+			width: 52rpx;
+			height: 52rpx;
 			border-radius: $uni-border-radius-sm;
 		}
 		
 		.back-img{
-			margin-top: 21rpx;
-			width: 48rpx;
-			height: 48rpx;
+			width: 88rpx;
+			height: 88rpx;
+			padding-left: 14rpx;
+			text-align: center;
+			
+			image{
+				margin-top: 18rpx;
+				width: 52rpx;
+				height: 52rpx;
+			}
 		}
 	}
 
@@ -42,15 +47,14 @@
 		margin: auto;
 
 		image {
-			padding-top: 21rpx;
-			width: 88rpx;
-			height: 42rpx;
+			padding-top: 20rpx;
+			width: 125rpx;
+			height: 46rpx;
 		}
 	}
 
 	.top_bar_right {
 		float: right;
-		padding-right: 14rpx;
 
 		.search {
 			width: 88rpx;
@@ -64,13 +68,6 @@
 			padding-right: 14rpx;
 			display: inline-block;
 		}
-
-		image {
-			width: 52rpx;
-			height: 52rpx;
-			padding-top: 18rpx;
-			padding-left: 18rpx;
-		}
 		
 		.text {
 			font-size: $uni-font-size-lg;
@@ -79,5 +76,39 @@
 			line-height: 88rpx;
 			padding-right: 32rpx;
 		}
+		
+		.more-img{
+			width: 88rpx;
+			height: 88rpx;
+			padding-right: 14rpx;
+			display: inline-block;
+			text-align: center;
+			
+			image{
+				width: 60rpx;
+				height: 60rpx;
+				margin-top: 9rpx;
+			}
+		}
 	}
+}
+
+
+/* 底部样式 */
+.bottom-bar {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 90rpx;
+	padding-top: 10rpx;
+	padding-bottom: var(--status-bar-height);
+}
+	
+.btn1 {
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+	font-size: 32rpx;
+	border-radius: $uni-border-radius-sm;
+	color: $uni-text-color-inverse;
 }

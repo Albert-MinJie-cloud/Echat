@@ -2,18 +2,18 @@
 	<view class="content">
 
 		<view class="top_bar">
-			<view class="top_bar_left">
-				<image src="../../static/images/topbar/userAvatar.jpg" mode=""></image>
-			</view>
+			<navigator url="../userdetail/userdetail?id=1" hover-class="none" class="top_bar_left">
+				<image src="../../static/images/topbar/userAvatar.jpg"></image>
+			</navigator >
 			<view class="top_bar_center">
-				<image src="../../static/images/topbar/appIcon.jpg" mode=""></image>
+				<image src="../../static/images/friendslist/echatlogobig.png"></image>
 			</view>
 			<view class="top_bar_right">
 				<view class="search">
-					<image src="../../static/images/topbar/search.png" mode=""></image>
+					<image src="../../static/images/topbar/search.png" @tap="toSearch"></image>
 				</view>
 				<view class="add">
-					<image src="../../static/images/topbar/add.png" mode=""></image>
+					<image src="../../static/images/topbar/add.png"></image>
 				</view>
 			</view>
 		</view>
@@ -25,7 +25,7 @@
 				<view class="friend_list">
 					<view class="friend_list_item">
 						<text class="tip">11</text>
-						<image src="../../static/images/friendslist/add-account.png" mode=""></image>
+						<image src="../../static/images/friendslist/add-account.png"></image>
 					</view>
 					<view class="friend_list_r">
 						<view class="top">
@@ -253,7 +253,11 @@
 
 		},
 		methods: {
-
+			toSearch: function() {
+				uni.navigateTo({
+					url: '../search/search'
+				})
+			}
 		}
 	}
 </script>

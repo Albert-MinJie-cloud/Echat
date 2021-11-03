@@ -56,7 +56,7 @@ rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏�
 ## 6.0在git bash下安装tree
 [bash下tree安装](https://www.jianshu.com/p/32ba82d84680)
 
-```
+```markdown
 在 WIndow 平台下，系统自带的命令行工具 CMD 可以使用 dir 命令来以树结构打印目录文件，
 Powershell 工具可以使用 tree 命令。
 但是，一般为了开发方便，通常会使用更接近 Linux 命令的 Git-Bash 作为常用的命令行工具，然而 Git-Bash 却不支持 tree 命令。
@@ -69,7 +69,7 @@ Powershell 工具可以使用 tree 命令。
 进入 Git-Bash，输入 tree 命令，如果安装成功，命令可以正常执行。
 ```
 ## 7.0 tree的命令大全
-```markdowm
+```markdown
 -a 显示所有文件和目录。
 -A 使用ASNI绘图字符显示树状图而非以ASCII字符组合。
 -C 在文件和目录清单加上色彩，便于区分各种类型。
@@ -111,7 +111,7 @@ Powershell 工具可以使用 tree 命令。
 ```
 
 ## 12.0 公共样式的制定与使用
-```
+```text
 ├─.hbuilderx
 ├─commons
 │  ├─css
@@ -137,3 +137,105 @@ Powershell 工具可以使用 tree 命令。
                         └─topbar
 ```
 * 使用公共样式import "../../commons/css/xxx.scss"
+
+## 13.0在做调试的时候需要一些模拟的数据，这时候就需要建表来存对应的数据
+## 表结构如下
+```
+用户表
+id、用户名、邮箱、性别、生日、电话、密码、注册时间、签名、头像连接
+
+好友表
+id、用户id、好友id、生成时间、好友状态（0表示已经是好友，1表示申请中，2表示申请发送方，对方未同意）
+
+一对一消息表
+id、发送者id、接收者id、发送内容、内容类型（0文字，1图片连接，2音频连接），发送时间，消息状态（0已读，1未读）
+
+群表
+id，群主id，群名、群封面连接、群公告、群建立时间
+
+群成员表
+id，群id，用户id，群内名，加入时间，未读消息数，是否屏蔽群消息（0不屏蔽，1屏蔽）
+
+群消息表
+id，群id、发送者id、发送内容、内容类型（0文字，1图片连接，2音频连接），发送时间
+
+```
+
+## 14.0 搜索匹配
+```javascript
+let arr = datas.friends()
+for (let i = 0; i < arr.length; i++) {
+	if (arr[i].name.search(e) != -1 || arr[i].name.search(e) != -1) {
+		this.userarr.push(arr[i])
+	}
+}
+console.log(this.userarr)
+```
+
+## 15.0 高亮显示
+```javascript
+arr[i].name = arr[i].name.replace(exp, "<span style='color:rgba(249,193,46,1)'>" + e + "</span>")
+arr[i].email = arr[i].email.replace(exp, "<span style='color:rgba(249,193,46,1)'>" + e + "</span>")
+```
+
+## 16.0 vue 渲染html文本
+在标签属性上面加v-html
+<view class="name" v-html="item.name"></view>
+
+## 17.0 好友搜索业务流程
+1.0 输入关键词、调接口搜索拿到user列表(变换搜索词的时候还访问)
+2.0 再次调用接口判断对方是否是我的好友
+
+## 18.0 获取元素动态高度
+* 1.0 uni.createSelectorQuery()
+```javascript
+const query = uni.createSelectorQuery().in(this);
+query.select('#id').boundingClientRect(data => {
+  console.log("得到布局位置信息" + JSON.stringify(data));
+  console.log("节点离页面顶部的距离为" + data.top);
+}).exec();
+```
+* 在元素的style绑定这个高度
+```
+<view class="add-msg" :style="{height:addHeight+'px'}">
+```
+## 19.0 动画的制作
+* 1.0 使用uni的动画api实现
+* 使用一个状态来控制同一个动画的开启和关闭
+```javascript
+addFriendAnima() {
+	this.isAdd = !this.isAdd;
+	var animation = uni.createAnimation({
+		duration: 500,
+		timingFunction: "ease",
+	})
+
+	if (this.isAdd) {
+		animation.bottom(0).step()
+	} else {
+		animation.bottom(-this.addHeight).step()
+	}
+	this.animationData = animation.export()
+}
+```
+
+## 20.0 使用图片裁剪的库完成了头像可选择，可以裁剪的功能
+* 1.0 使用vue官网的插件实现了图片裁剪的功能
+
+## 21.0 聊天界面
+* 1.0 页面高度占满手机高度
+```css
+page{
+	/* 设置页面窗口高度为100% */
+	height:100%;
+}
+```
+* 2.0 主要是页面的消息左右布局，使用row-reverse
+```css
+display:flex;
+flex:row;
+flex:row-reverse;
+```
+* 3.0 图片查看，收藏和分享，使用uni-ap自带的api
+* uni.previewImage(OBJECT) 预览图片。
+
